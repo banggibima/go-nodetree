@@ -24,12 +24,14 @@ func insert(root *Node, value int) *Node {
 	return root
 }
 
-func inorderTraversal(root *Node) {
+func inorderTraversal(root *Node) string {
+	var result string
 	if root != nil {
-		inorderTraversal(root.Left)
-		fmt.Printf("%d ", root.Value)
-		inorderTraversal(root.Right)
+		result += inorderTraversal(root.Left)
+		result += fmt.Sprintf("%d ", root.Value)
+		result += inorderTraversal(root.Right)
 	}
+	return result
 }
 
 func main() {
